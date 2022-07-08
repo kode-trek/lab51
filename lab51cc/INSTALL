@@ -1,0 +1,90 @@
+#! /bin/bash
+
+# The MIT License (MIT)
+# Copyright (c) 2022 Emeer Adhamian (github.com/kode-trek)
+# https://github.com/kode-trek/lab51/blob/main/LICENSE
+# https://github.com/kode-trek/archive/blob/main/LICENSE
+
+echo "-- LAB51CC --";
+
+if [[ "$1" == "--revert" ]]
+then
+ trap "exit" INT
+
+ sudo apt-get remove build-essential -y
+ sudo apt-get remove libc6-dev -y
+ sudo apt-get remove mingw-w64 -y
+ sudo apt-get remove gcc-9-locales wine wine64
+ sudo apt-get update -y
+
+ sudo rm -rf /usr/lib/lab51cc/
+ sudo rm /usr/bin/lab51cc
+
+ if [[ "$USER" == "root" ]]
+ then
+  rm -rf /$USER/.area51/lab51cc/
+ else
+  rm -rf /home/$USER/.area51/lab51cc/
+ fi
+
+ read -n1 -r -p "press ANY-KEY to EXIT..." key
+ exit
+fi
+
+if [[ -e /usr/bin/lab51cc ]]
+then
+ echo "[WARNING] file(s) found: /usr/bin/lab51cc"
+ if [[ -e /usr/lib/lab51cc ]]
+ then
+  echo "[WARNING] file(s) found: /usr/lib/lab51cc"
+ fi
+ read -p "RE-INSTALL? (Y/N): " confirm && [[ $confirm == [yY] ]] || exit 1
+fi
+
+trap "exit" INT
+
+sudo apt-get update -y
+sudo apt-get install software-properties-common -y
+sudo apt-get install build-essential -y
+sudo apt-get install libc6-dev -y
+sudo apt-get install mingw-w64 -y
+sudo apt-get install gcc-9-locales wine wine64
+
+sudo rm -rf /usr/lib/lab51cc/
+sudo mkdir /usr/lib/lab51cc/
+sudo cp -rf heads-up/ /usr/lib/lab51cc/
+
+if [[ "$USER" == "root" ]]
+then
+ mkdir /$USER/.area51/
+ rm -rf /$USER/.area51/lab51cc
+ mkdir /$USER/.area51/lab51cc
+ cp -rf heads-up /$USER/.area51/lab51cc/
+else
+ mkdir /home/$USER/.area51/
+ rm -rf /home/$USER/.area51/lab51cc
+ mkdir /home/$USER/.area51/lab51cc
+ cp -rf heads-up /home/$USER/.area51/lab51cc/
+fi
+
+if [[ "$USER" == "root" ]]
+then
+ g++ main.cc -o lab51cc \
+ -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++2a -pthread \
+ -I/$USER/.area51/lab51cc/ \
+ -include/$USER/.area51/lab51cc/heads-up/deb-dos.hh
+else
+ g++ main.cc -o lab51cc \
+ -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++2a -pthread \
+ -I/home/$USER/.area51/lab51cc/ \
+ -include/home/$USER/.area51/lab51cc/heads-up/deb-dos.hh
+fi
+
+sudo mv lab51cc /usr/bin/
+e=$(( $? - 0))
+if (( e == 0 ))
+then
+ echo "DONE."
+fi
+
+read -n1 -r -p "press ANY-KEY to EXIT..." key
