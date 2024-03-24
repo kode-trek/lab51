@@ -1,0 +1,10 @@
+	#ifdef __linux__
+	abbr(arg1);
+	tmpf = arg1 + "/" + ts(false);
+	#endif
+	#ifdef _WIN32
+	tmpf = arg1 + "\\" + ts(false);
+	#endif
+	
+		else {p = arg;}
+	if (exists(p) == 0) {return false;}

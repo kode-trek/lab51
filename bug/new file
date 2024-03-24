@@ -1,0 +1,40 @@
+
+#ifdef __linux__
+int main() {
+	string wd = ts(); md(wd); cd(wd);
+	cout <<
+	"COPY [SOURCE, TARGET] [IN: " << wd << "]""\n"
+	"bool CP (string, string)""\n"
+	"--------------------------------------""\n"
+	<< endl;
+	//var(s)
+	string tmpf = "";
+	//op(s)
+	cout << cp() << endl;
+	//
+	drop("F1", "Line-F1"); drop("F2", "Line-F2");
+	cout << cp("F1", "F2") << endl;
+	k2c(); rm("F1"), rm("F2"); cout << endl;
+	//
+	tmpf = "F1_" + ts(); drop(tmpf);
+	cout << cp(tmpf, "/") << endl;
+	k2c(); rm(tmpf); rm("/" + tmpf); cout << endl;
+	//
+	drop("F1"); md("D2");
+	cout << cp("F1", "D2/F2") << endl;
+	k2c(); rm("F1"); rm("D2"); cout << endl;
+	//
+	md("D1"); md("D1/" + ts()); drop("D1/" + ts()); md("D2");
+	cout << cp("D1", "D2") << endl;
+	k2c(); rm("D1"); rm("D2"); cout << endl;
+	//move this-very-dir into itslef!
+	md("D2"); cout << cp(".", "D2") << endl;
+	//<source> and <target> are the same!
+	cout << cp(".", ".") << endl;
+	//(op)s-end
+	cd(".."); rm(wd);
+}
+#elif _WIN32
+int main() {return 0;}
+#endif
+

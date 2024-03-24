@@ -1,0 +1,27 @@
+//change-directory [path]
+bool cd(string arg1, ...) {
+	#ifdef __linux__
+	abbr(arg1);
+	#endif
+	int c = chdir(arg1.c_str());
+	if (c) return false; return true;
+}
+bool cd(...) {return true;}
+
+	#ifdef __linux__
+	int e = chdir(v1.c_str());
+	#endif
+	#ifdef _WIN32
+	int e = _wchdir(u8(v1).c_str());
+	#endif
+	if (e) return true; return false;
+	
+	
+	//int main() {
+// cd("Music");
+// cout << pwd() << endl;
+// cout << fs::current_path() << endl;
+//}
+
+///home/kode-trek/Music
+//"/home/kode-trek/Music"

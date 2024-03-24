@@ -1,0 +1,9 @@
+In file included from main_snap.cc:1:
+proc_snap.hh: In function ‘void proc_snap(std::string, std::string)’:
+proc_snap.hh:38:2: error: ‘mkdir’ was not declared in this scope; did you mean ‘dir’?
+   38 |  mkdir(tmp);
+      |  ^~~~~
+      |  dir
+
+
+[COMMAND] g++ "main_snap.cc" -o "main_snap_1629791406.out" -fconcepts -lstdc++fs -std=c++17 -pthread -I/home/sailer/.area51/lab51cc/header/ -include/home/kode-trek/.area51/lab51cc/header/heads-up/deb-dos.hh

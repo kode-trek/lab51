@@ -1,0 +1,80 @@
+#!/bin/bash
+
+DIR="/home/$USER/.area51py3"
+if [ ! -d "$DIR" ]
+then
+	echo "[FAILED] Lab51Py3 is not installed."
+	exit
+fi
+
+if [[ "$1" == '--ipython' ]]
+then
+	source ~/.area51py3/bin/activate
+	python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'
+	deactivate
+	exit
+fi
+
+if [[ "$1" == '--pkg' ]]
+then
+	source ~/.area51py3/bin/activate
+	pip3 install "$2" 2>/dev/null
+	if [[ "$?" -ne 0 ]]
+	then
+		echo "[FAILED]"
+		echo "source ~/.area51py3/bin/activate"
+		echo "pip3 install \"$2\""
+		echo "deactivate"
+		exit
+	fi
+	deactivate
+	exit
+fi
+if [[ "$1" == '--build' ]]
+then
+	source ~/.area51py2/bin/activate
+	pyinstaller --onefile "$2" 2>/dev/null
+	if [[ "$?" -ne 0 ]]
+	then
+		echo "[FAILED]"
+		echo "source ~/.area51py2/bin/activate"
+		echo "pyinstaller --onefile \"$2\" 2>/dev/null"
+		echo "mv dist/* . 2>/dev/null"
+		echo "rm -rf dist build *.spec 2>/dev/null"
+		echo "deactivate"
+		exit
+	fi
+	mv dist/* . 2>/dev/null
+	rm -rf dist build *.spec 2>/dev/null
+	deactivate
+	exit
+fi
+if [[ "$1" == '--mod' ]]
+then
+	source ~/.area51py3/bin/activate
+	if [ ! -f "cTurbo" ]
+	then
+		cp /home/$USER/.area51py3/lib/cTurbo . 2>/dev/null
+	else
+		echo '[FAILED] <cTurbo> exists.'
+	fi
+	if [ ! -f "setup.py" ]
+	then
+		cp /home/$USER/.area51py3/lib/setup.py . 2>/dev/null
+	else
+		echo '[FAILED] <setup.py> exists.'
+	fi
+	./cTurbo "$2"
+	rm cTurbo setup.py 2>/dev/null
+	deactivate
+	exit
+fi
+
+if [[ "$1" == '--help' ]]
+then
+	cat /usr/lib/lab51py3/man
+	exit
+fi
+source ~/.area51py3/bin/activate
+"$@"
+deactivate

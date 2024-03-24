@@ -1,0 +1,159 @@
+	if (exists(arg1) == 0) {return false;}
+
+// const auto v = fs::copy_options::none;
+// const auto v = fs::copy_options::skip_existing;
+// const auto v = fs::copy_options::update_existing;
+// const auto v = fs::copy_options::copy_symlinks;
+// const auto v = fs::copy_options::skip_symlinks;
+// const auto v = fs::copy_options::directories_only;
+// const auto v = fs::copy_options::create_symlinks;
+// const auto v = fs::copy_options::create_hard_links;
+
+//// #ifdef _WIN32
+//// if (dir(arg2)) arg2 = arg2 + "\\" + uri(arg1)[1];
+//// ifstream src(arg1, ios::binary); ofstream dst(arg2, ios::binary);
+//// try {dst << src.rdbuf(); return true;} catch (...) {return false;}
+//// #endif
+// #ifdef _WIN32
+//   variable(s)
+// [v3] shell-file-operation-structure-ascii
+// */
+// SHFILEOPSTRUCTA v3;
+// v3.pFrom = v1.c_str();
+// v3.pTo = v2.c_str();
+// v3.wFunc = FO_COPY;
+// v3.fFlags = FOF_NOCONFIRMATION | FOF_NOCONFIRMMKDIR | FOF_SILENT;
+// // op(s)
+// int e = SHFileOperationA(&v3);
+// if (not e) return false; return true;
+// #endif
+// examine the following two on WIN
+//}
+//	const auto opt1 = fs::copy_options::update_existing;
+//	const auto opt2 = fs::copy_options::recursive;
+//	const auto opt3 = fs::copy_options::directories_only;
+//	const auto copy_opt = opt1 | opt2;
+// if (is_dir(arg1) == 1) {
+//  md(uri(arg1)[1]);
+//  try {
+//   fs::copy(arg1, uri(arg1)[1] + "/" + arg2, copy_opt);
+//   return true;
+//  } catch (...) {return false;}
+// }
+
+
+
+
+//copy [source] [target]
+bool cp(string arg1, string arg2 = pwd(), ...) {
+	#ifdef __linux__
+	abbr(arg1);
+	abbr(arg2);
+	const auto opt0 = fs::copy_options::none;
+	const auto opt1 = fs::copy_options::skip_existing;
+	const auto opt2 = fs::copy_options::overwrite_existing;
+	const auto opt3 = fs::copy_options::update_existing;
+	const auto opt4 = fs::copy_options::recursive;
+	const auto opt5 = fs::copy_options::copy_symlinks;
+	const auto opt6 = fs::copy_options::skip_symlinks;
+	const auto opt7 = fs::copy_options::directories_only;
+	const auto opt8 = fs::copy_options::create_symlinks;
+	const auto opt9 = fs::copy_options::create_hard_links;
+	const auto copy_opt = opt2 | opt4;
+	//<source> and <target> are the same!
+	if (arg1 == arg2) return false;
+	//move this-very-dir into itslef!
+	if (arg1 == uri(arg2)[0]) return false;
+	if (dir(arg2)) arg2 = arg2 + "/" + uri(arg1)[1];
+	try {
+		fs::copy(arg1, arg2, copy_opt);
+		return true;
+	} catch (...) {return false;}
+	#endif
+	#ifdef _WIN32
+	SHFILEOPSTRUCTA sf;
+	int result;
+	string source = arg1;
+	string dest = arg2;
+	sf.pFrom = source.c_str();
+	sf.pTo = dest.c_str();
+	sf.wFunc = FO_COPY;
+	sf.fFlags = FOF_NOCONFIRMATION | FOF_NOCONFIRMMKDIR | FOF_SILENT;
+	result = SHFileOperationA(&sf);
+	if (result == 0) return true;
+	return false;
+	#endif
+}
+bool cp(...) {return false;}
+
+
+
+
+// copy [source] [target]
+
+bool cp(string arg1, string arg2 = pwd(), ...) {
+	/*		variable(s)
+	[v1]	source
+	[v2]	target
+	*/
+	string v1 = arg1;
+	string v2 = arg2;
+	#ifdef __linux__
+	/*		variable(s)
+	[v3]	option-0
+	[v4]	option-1
+	[v5]	option-2
+	[v6]	option-3
+	[v7]	option-4
+	[v8]	option-5
+	[v9]	option-6
+	[v10]	option-7
+	[v11]	option-8
+	[v12]	option-9
+	[v13]	copy-option(s)
+	*/
+	abbr(v1);
+	abbr(v2);
+	const auto v3 = fs::copy_options::none;
+	const auto v4 = fs::copy_options::skip_existing;
+	const auto v5 = fs::copy_options::overwrite_existing;
+	const auto v6 = fs::copy_options::update_existing;
+	const auto v7 = fs::copy_options::recursive;
+	const auto v8 = fs::copy_options::copy_symlinks;
+	const auto v9 = fs::copy_options::skip_symlinks;
+	const auto v10 = fs::copy_options::directories_only;
+	const auto v11 = fs::copy_options::create_symlinks;
+	const auto v12 = fs::copy_options::create_hard_links;
+	const auto v13 = v5 | v7;
+	// op(s)
+	if (v1 == v2) return true;// <source> and <target> are the same!
+	if (v1 == uri(v2)[0]) return true;// move this-very-dir into itslef!
+	if (dir(v2)) v2 = v2 + "/" + uri(v1)[1];
+	try {
+		fs::copy(v1, v2, v13);
+		return false;
+	} catch (...) {return true;}
+	#endif
+	#ifdef _WIN32
+	/*		variable(s)
+	[v3]	shell-file-operation-structure-ascii
+	*/
+	SHFILEOPSTRUCTA v3;
+	v3.pFrom = v1.c_str();
+	v3.pTo = v2.c_str();
+	v3.wFunc = FO_COPY;
+	v3.fFlags = FOF_NOCONFIRMATION | FOF_NOCONFIRMMKDIR | FOF_SILENT;
+	// op(s)
+	int e = SHFileOperationA(&v3);
+	if (not e) return false; return true;
+	#endif
+}
+
+bool cp(...) {return true;}
+
+	#ifdef _WIN32
+	if (dir(arg2)) arg2 = arg2 + "\\" + uri(arg1)[1];
+	ifstream src(arg1, ios::binary); ofstream dst(arg2, ios::binary);
+	try {dst << src.rdbuf(); return true;} catch (...) {return false;}
+	#endif
+

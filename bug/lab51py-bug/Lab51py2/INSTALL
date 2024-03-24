@@ -1,0 +1,36 @@
+#!/bin/bash
+
+echo "-- Lab51Py3 --"
+
+sudo apt-get update
+sudo apt-get install -y software-properties-common
+sudo apt-get install -y libc6-dev
+sudo apt-get install -y python3-dev
+sudo apt-get install -y build-essential
+sudo apt-get install -y python3-pip
+sudo apt-get install -y python3-setuptools
+#sudo apt-get install -y virtualenv
+
+ping PyPI.org -c 4
+if [[ "$?" -ne 0 ]]
+then
+	echo "[FAILED] unable to reach 'PyPI.org'."
+	exit
+fi
+
+pip3 install virtualenv
+loc=`pwd`
+cd ~
+rm -rf ~/.area51py3
+/home/$USER/.local/bin/virtualenv .area51py3
+source .area51py3/bin/activate
+pip3 install IPython
+pip3 install pyinstaller
+pip3 install Cython
+#sudo cp /usr/lib/lab51py3/setup.py /home/$USER/.area51py3/lib 2>/dev/null
+#sudo cp /usr/lib/lab51py3/cTurbo /home/$USER/.area51py3/lib 2>/dev/null
+#sudo cp /usr/lib/lab51py3/cTurbo.py /home/$USER/.area51py3/lib 2>/dev/null
+#sudo cp /usr/lib/lab51py3/sample.pyx /home/$USER/.area51py3/lib 2>/dev/null
+deactivate
+cd "$loc"
+

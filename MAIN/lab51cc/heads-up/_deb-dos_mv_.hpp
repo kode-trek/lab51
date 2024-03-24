@@ -1,0 +1,80 @@
+/*
+ The MIT License (MIT)
+ Copyright (c) 2023 Emeer Adhamian (github.com/kode-trek)
+ https://raw.githubusercontent.com/kode-trek/lab51/main/LICENSE
+*/
+
+bool mv(string arg1, string arg2 = pwd(), ...) {
+ /* variable(s)
+ [v1] source-path
+ [v2] target-path
+ */
+ string v1 = can(arg1);
+ string v2 = can(arg2);
+ if (dir(v2)) {
+  v2 = v2 + "/" + uri(v1, "full-name");
+  v2 = can(v2);
+ }
+ try {
+  fs::rename(u8(v1), u8(v2));
+  return false;
+ } catch (...) {return true;}
+}
+
+bool mv(...) {return true;}
+
+//// move [source] [target]
+
+//bool mv(string arg1, string arg2 = pwd(), ...) {
+//	/*		variable(s)
+//	[v1]	source
+//	[v2]	target
+//	*/
+//	string v1 = arg1;
+//	string v2 = arg2;
+//	abbr(v1);
+//	abbr(v2);
+//	if (dir(v2)) {
+//		#ifdef __linux__
+//		v2 = v2 + "/" + uri(v1)[1];
+//		#endif
+//		#ifdef _WIN32
+//		v2 = v2 + "\\" + uri(v1)[1];
+//		#endif
+//	}
+//	// op(s)
+//		#ifdef __linux__
+//			int e = rename(v1.c_str(), v2.c_str());
+//		#endif
+//		#ifdef _WIN32
+//			int e = _wrename(u8(v1).c_str(), u8(v2).c_str());
+//		#endif
+//	if (e) return true; return false;
+//}
+
+//bool mv(...) {return true;}
+
+//bool mv(string arg1="", string arg2="") {
+//	home(arg1);
+//	home(arg2);
+//	if (write_access(uri(arg1)[0]) == 0) {return false;}
+//	if (write_access(uri(arg2)[0]) == 0) {return false;}
+//	if (exists(arg1) == 0) {return false;}
+//	if ((exists(arg1) == 1) && (exists(arg2) == 0)) {
+//		try {
+//			fs::rename(arg1, (arg2));
+//			return true;
+//		} catch (...) {}
+//	}
+//	if ((exists(arg1) == 1) && (is_dir(arg2) == 1)) {
+//		try {
+//			fs::rename(arg1, (arg2 + "/" + uri(arg1)[1]));
+//			return true;
+//		} catch (...) {}
+//	}
+//	try {
+//		cp(arg1, arg2);
+//		rm(arg1);
+//		return true;
+//	} catch (...) {return false;}
+//}

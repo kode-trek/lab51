@@ -1,0 +1,60 @@
+from func import *
+try:
+	# checks for argument(s) supplied.
+	if len(argv) < 2:
+		print '[FAILED] invalid number of argument(s) supplied.'
+		exit()
+	else:	arg = argv[1]
+	# checks whether a file given or not.
+	if isdir(arg) == True:
+		print '[FAILED] it needs a <.pyx> file for an argument.'
+		exit()
+	if not exists(arg):
+		print '[FAILED] no such file:', uri(arg)[2]
+		exit()
+	# elicits file-name (fn) and file-(ext)ension.
+	fn = uri(arg)[3]
+	ext = uri(arg)[4]
+	# checks for argument's extension.
+	# gives a warning if it is NOT <.pyx>.
+	if ext != '.pyx':
+		print '[WARNING] source-code is NOT a <.pyx> file.'
+		print 'check out: /home/' + getuser() + '/.area51py2/lib/sample.pyx'
+	# checks dots in name of source-code.
+	if '.' in fn:
+		print '[FAILED] <' + fn + '> naming is NOT SAFE. avoid extra dots!'
+		exit()
+	# checks for workplace.
+	if exists('build'):
+		print '[FAILED] <build/> exists.'
+		exit()
+	if exists(fn):
+		print '[FAILED] <' + fn + '> exists.'
+		exit()
+	if exists(fn + '.so'):
+		print '[FAILED] <' + fn + '.so> exists.'
+		exit()
+	if exists(fn + '.c'):
+		print '[FAIlED] <' + fn + '.c> exists.'
+		exit()
+	if exists('MOD'):
+		print '[FAILED] <MOD/> exists.'
+		exit()
+	# builds an extension (.so) and its source-code in (.c).
+	system('echo -n "building extension <.so> ..."')
+	cmd = \
+		system('lab51py2 python setup.py build_ext --inplace' + \
+		' 2>/dev/null 1>/dev/null')
+	if cmd != 0:
+		print '[FAILED]'
+		exit()
+	rmtree('build')
+	mkdir('MOD')
+	move(fn + '.c', 'MOD')
+	move(fn + '.so', 'MOD')
+	move(fn + '.pyx', 'MOD')
+	print 'done!'
+except:
+	print ''
+	exit()
+

@@ -1,0 +1,11 @@
+//display-current-directory
+string pwd(...) {
+	#ifdef _WIN32
+	char temp[MAXPATHLEN];
+	return (getcwd(temp, sizeof(temp)) ? string(temp) : string(""));
+	#endif
+	#ifdef __linux__
+	return fs::current_path();
+	#endif
+}
+

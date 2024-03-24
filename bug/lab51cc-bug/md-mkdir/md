@@ -1,0 +1,2 @@
+	if(mkdir(dname.c_str()) != 0) {return false;}
+

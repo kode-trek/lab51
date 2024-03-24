@@ -1,0 +1,25 @@
+//vector<float> space(string arg1, ...) {
+// /* variable(s)
+// [v1] space-information
+// [v2] float-vector
+// */
+// const fs::space_info v1 = fs::space(arg1);
+// vector<float> v2 = {};
+// v2.push_back(v1.capacity);
+// v2.push_back(v1.free);
+// v2.push_back(v1.available);
+// return v2;
+//}
+
+//vector<float> space(...) {
+// /* variable(s)
+// [v1] space-information
+// [v2] float-vector
+// */
+// const fs::space_info v1 = fs::space(pwd());
+// vector<float> v2 = {};
+// v2.push_back(v1.capacity);
+// v2.push_back(v1.free);
+// v2.push_back(v1.available);
+// return v2;
+//}

@@ -1,0 +1,169 @@
+//struct ReadTextFile {
+// int nrow; // number-of-row(s)
+// string txt; // text
+//};
+//ReadTextFile cat(string, ...);
+//ReadTextFile cat(...);
+
+
+//ReadTextFile cat(string arg1, ...) {
+// /* variable(s)
+// [v1] text-file
+// [v2] text-file-struct
+// [v3] file-handler
+// [v4] character
+// */
+// string v1 = can(arg1);
+// ReadTextFile v2;
+// v2.nrow = 1;
+// v2.txt = "";
+// FILE* v3;
+// char v4 = '\0';
+// // op(s)
+// #ifdef __linux__
+// v3 = fopen(v1.c_str(), "r");
+// #endif
+// #ifdef _WIN32
+// v3 = _wfopen(u8(v1).c_str(), L"r,ccs=UTF-8");
+// #endif
+// if (v3) {
+//  while ((v4 = getc(v3)) != EOF) {
+//   if (v4 == '\n') (v2.nrow)++;
+//   v2.txt += v4;
+//  }
+//  fclose(v3);
+// }
+// if ((v2.txt).size() == 0) v2.nrow = 0;
+// return v2;
+//}
+
+//ReadTextFile cat(...) {
+// /*  variable(s)
+// [v1] text-file-struct
+// */
+// ReadTextFile v1;
+// v1.nrow = 0;
+// v1.txt = "";
+// // op(s)
+// return v1;
+//}
+
+
+
+/*in deb-dos.hh*/
+/*//read [text-file]*/
+/*struct rtf {*/
+/*	unsigned long long int nrow;*/
+/*	string txt;*/
+/*};*/
+/*rtf cat(string, ...);*/
+/*rtf cat(...);*/
+
+//read [text-file]
+rtf cat(string arg1, ...) {
+	#ifdef __linux__
+	abbr(arg1);
+	#endif
+	rtf v;
+	v.nrow = 1;
+	v.txt = "";
+	FILE *fp;
+	char c = '\0';
+	fp = fopen(arg1.c_str(), "r");
+	if (fp) {
+		while ((c = getc(fp)) != EOF) {
+			if (c == '\n') (v.nrow)++;
+			v.txt += c;
+		}
+		fclose(fp);
+	}
+	if ((v.txt).size() == 0) v.nrow = 0;
+	return v;
+}
+rtf cat(...) {
+	rtf v;
+	v.nrow = 0;
+	v.txt = "";
+	return v;
+}
+
+struct file_read {
+	bool exist;
+	unsigned long long int nrow;
+	string txt;
+};
+
+file_read read_txt(string arg="") {
+	home(arg);
+	file_read fr;
+	fr.exist = false;
+	fr.nrow = 0;
+	fr.txt = "";
+	FILE *fp = NULL;
+	char c = '\0';
+	int i = 0;
+	fp = fopen(arg.c_str(), "r");
+	if (fp) {
+		if ((c = getc(fp)) != EOF) {
+			i = 1;
+			fr.txt += c;
+		}
+		while ((c = getc(fp)) != EOF) {
+			if (c == '\n') {i++;}
+			fr.txt += c;
+		}
+		fclose(fp);
+		fr.exist = true;
+		fr.nrow = i;
+	}
+	return fr;
+}
+
+file_read read_txt(string arg="") {
+	home(arg);
+	file_read fr;
+	fr.exist = false;
+	fr.nrow = 0;
+	fr.txt = "";
+	FILE *fp = NULL;
+	char c = '\0';
+	int i = 0;
+	fp = fopen(arg.c_str(), "r");
+	if (fp) {
+		if ((c = getc(fp)) != EOF) {
+			i = 1;
+			fr.txt += c;
+		}
+		while ((c = getc(fp)) != EOF) {
+			if (c == '\n') {i++;}
+			fr.txt += c;
+		}
+		fclose(fp);
+		fr.exist = true;
+		fr.nrow = i;
+	}
+	return fr;
+}
+
+file_read readln_txt(string arg="") {
+	home(arg);
+	file_read fr;
+	fr.exist = false;
+	fr.nrow = 0;
+	fr.txt = "";
+	FILE *fp = NULL;
+	char c = '\0';
+	int i = 0;
+	fp = fopen(arg.c_str(), "r");
+	if (fp) {
+		while ((c = getc(fp)) != '\n') {
+			fr.txt += c;
+			fr.exist = true;
+			fr.nrow = 1;
+		}
+	}
+	fclose(fp);
+	return fr;
+}
+
+

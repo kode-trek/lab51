@@ -1,0 +1,11 @@
+//press-any-key-to-cont.
+void k2c(...) {
+	#ifdef _WIN32
+	disp("press ENTER key to continue...");
+	cin.get();
+	#endif
+	#ifdef __linux__
+	disp("press ENTER key to continue...");
+	cin.get();
+	#endif
+}
