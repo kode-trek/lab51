@@ -1,0 +1,13 @@
+#!/bin/bash
+if [[ ! "$1" ]]
+then
+	echo "[FAILED] invalid number of arg(s) supplied."
+	echo "[pattern] subv <https://github.com/<USER>/<REPO>/tree/main/<DIR|...>"
+else
+	# elicits the directory.
+	svn checkout `echo $1 | awk '{gsub(/tree\/main/,"trunk")}1'`
+fi
+
+#original_str='tree/master'
+#replace_str='trunk'
+#sed "s~$original_str~$replace_str~" tmp

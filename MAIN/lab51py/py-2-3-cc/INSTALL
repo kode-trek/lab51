@@ -1,0 +1,33 @@
+#! /bin/bash
+
+echo "-- LAB51PY --"
+echo ""
+
+lab51cc 1>/dev/null 2>/dev/null
+if [[ "$?" > 0 ]]
+then
+	echo "[dependency] <lab51cc>"
+	echo "[contact] <github.com/ID>"
+	exit
+fi
+
+lab51cc --cross lib/setup.cc
+mv setup_x64_* SETUP.exe
+rm setup_*
+
+echo ""
+
+lab51cc --cross lib/main.cc
+mv main_x64_* lib/lab51py.exe
+rm main_*
+
+zip -y -q -r Lab51Py.zip SETUP.exe
+zip -y -q -r Lab51Py.zip lib/lab51py.exe
+zip -y -q -r Lab51Py.zip "lib/python-3.8.9-amd64.exe"
+
+rm lib/lab51py.exe
+rm SETUP.exe
+
+echo ""
+
+read -n1 -r -p "press any key to EXIT..." key

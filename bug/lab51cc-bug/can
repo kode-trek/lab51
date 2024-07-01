@@ -1,0 +1,28 @@
+// compiled the following script:
+
+#include <bits/stdc++.h>
+
+using namespace std;
+namespace fs = std::filesystem;
+
+int main() {
+ cout << fs::weakly_canonical("/root/a") << endl;
+}
+
+// via this command:
+
+// > g++ "$1" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17
+
+// for some reason it returned "core-dump" error.
+// so we had to confine that code-line in "try-catch" phrase:
+
+try {
+ cout << fs::weakly_canonical("/root/a") << endl;
+} catch {cout << fs::weakly_canonical("") << endl;}
+
+// check out "_deb_dos_can.hpp" for actual code.
+
+// about that "home()" part, we could extend it for all environment variable(s).
+// on both deb/dos platforms, it'll collect env-var(s) key/value in 2 vectors.
+// the tilde "~" would be one eaxample for deb.
+// the "%SystemRoot" would be another one for dos.

@@ -1,0 +1,4 @@
+ if (WIFSIGNALED(e)) {
+  note("[interrupted]""\n", "red");
+//		"some file(s)/task(s) may left incomplete."
+

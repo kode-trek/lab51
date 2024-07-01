@@ -1,0 +1,9 @@
+	cout << endl;
+	// INIT NEW PROCESS-NODE
+	cmd = (string)
+	"source ~/env1/bin/activate" + "\n" +
+	"python -c 'import cv2' 2>/dev/null" + "\n" +
+	"echo $?" + "\n" +
+	"deactivate";
+	sys(cmd, true);
+

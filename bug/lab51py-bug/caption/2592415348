@@ -1,0 +1,47 @@
+[4090012] lab51py
+[1487] lab51py/LAB51
+[906] lab51py/LAB51/WIN 7 and Later
+[298] lab51py/LAB51/WIN 7 and Later/LAB51.BAT
+[608] lab51py/LAB51/WIN 7 and Later/START.BAT
+[581] lab51py/LAB51/WIN XP
+[581] lab51py/LAB51/WIN XP/START.BAT
+[61] lab51py/py
+[4073156] lab51py/Py2Lab51-WIN32
+[45] lab51py/Py2Lab51-WIN32/hello.py
+[119] lab51py/Py2Lab51-WIN32/hook-data.py
+[1127] lab51py/Py2Lab51-WIN32/lab51py2w32.BAT
+[166139] lab51py/Py2Lab51-WIN32/man.pdf
+[2883] lab51py/Py2Lab51-WIN32/man.tex
+[2883] lab51py/Py2Lab51-WIN32/sample.tex
+[4147] lab51py/Py2Lab51-WIN32/setup.BAT
+[629] lab51py/Py2Lab51-WIN32/START.BAT
+[3895184] lab51py/Py2Lab51-WIN32/wget.exe
+[1882] lab51py/py3-linux
+[547] lab51py/py3-linux/DEBIAN
+[547] lab51py/py3-linux/DEBIAN/control
+[1335] lab51py/py3-linux/usr
+[1335] lab51py/py3-linux/usr/bin
+[225] lab51py/py3-linux/usr/bin/lab51py3
+[1110] lab51py/py3-linux/usr/bin/post-inst.sh
+[176] lab51py/recursive-style.py
+[573] lab51py/wine1
+[2894] lab51py/wine2
+[9783] lab51py/zTHIS
+[730] lab51py/zTHIS/INSTALL
+[9053] lab51py/zTHIS/lib
+[79] lab51py/zTHIS/lib/INSTALL.BAT
+[1183] lab51py/zTHIS/lib/main.cc
+[308] lab51py/zTHIS/lib/proc_build.hh
+[1164] lab51py/zTHIS/lib/proc_help.hh
+[844] lab51py/zTHIS/lib/proc_ipython.hh
+[309] lab51py/zTHIS/lib/proc_module.hh
+[1089] lab51py/zTHIS/lib/proc_package.hh
+[701] lab51py/zTHIS/lib/proc_run.hh
+[309] lab51py/zTHIS/lib/proc_source.hh
+[1830] lab51py/zTHIS/lib/setup.cc
+[46] lab51py/zTHIS/lib/un-install-1.BAT
+[1126] lab51py/zTHIS/lib/unattend.xml
+[65] lab51py/zTHIS/lib/UNINSTALL-1.BAT
+[1070] LICENSE
+[7] README.md
+[178] sync-git
