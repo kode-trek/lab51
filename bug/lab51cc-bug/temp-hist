@@ -1,0 +1,62 @@
+mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621092703.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621092703.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+sudo apt-get install libncurses5-dev libncursesw5-dev
+g++ q.cc
+g++ "q.cc" -o "q_1621426727" -fconcepts -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/
+bash ~/.bashrc
+source ~/.bashrc
+bash -c ls
+bash -c "ls"
+i686-w64-mingw32-g++ "cat.cc" -o "cat_x64_1621483275.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-g++ "q.cc" -o "q_x64_1621664660.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/
+i686-w64-mingw32-g++ "q.cc" -o "q_x64_1621664660.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread
+i686-w64-mingw32-g++ q.cc 
+i686-w64-mingw32-g++ -std=c++17 q.cc
+i686-w64-mingw32-g++ "q.cc" -o "q_x64_1621664660.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/
+i686-w64-mingw32-g++ "q.cc" -o "q_x64_1621665278.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-g++ "q.cc" -o "q_x64_1621665278.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/
+i686-w64-mingw32-g++ "q.cc" -o "q_x64_1621665278.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/
+g++ "q.cc" -o "q_1622090750.out" -fconcepts -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/deb-dos.hh
+
+-lcursesi686-w64-mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621088828.exe"  -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621088828.exe" -lcurses -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621088828.exe" -ltermios -lcurses -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621088828.exe" -lncurses -ltermios -lcurses -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621088828.exe" -fconcepts -lncurses -ltermios -lcurses -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621088828.exe" -fconcepts -lncurses -ltermios -lcurses -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread
+i686-w64-mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621088828.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread
+
+i686-w64-mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621088828.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread
+
+i686-w64-mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621088828.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread
+
+i686-w64-mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621088828.exe" -fconcepts -lncurses -ltermios -lcurses -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/
+i686-w64-mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621088828.exe" -fconcepts -ltermios -lcurses -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/
+i686-w64-mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621088828.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/
+
+i686-w64-mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621088828.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/
+i686-w64-mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621088828.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32.static-cmake "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621088828.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+
+i686-w64-mingw32-g++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621091074.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-c++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621091074.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32.static-cmake "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621091074.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-cpp-posix "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621091074.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+
+i686-w64-mingw32-cpp-posix "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621091074.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+
+i686-w64-mingw32-g++-win32 "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621091074.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-g++-posix "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621091074.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-c++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621091074.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-cpp "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621091074.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+
+i686-w64-mingw32-gcc "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621091074.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-gcc-9.3-posix "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621091074.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-ld "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621091074.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-c++-posix "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621091074.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-c++ "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621091074.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+i686-w64-mingw32-cpp "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621091074.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+
+i686-w64-mingw32-cpp-posix "echo-input [on | off].cc" -o "echo-input [on | off]_x64_1621091074.exe" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/dos.h
+
+ 1263  g++ "q.cc" -o "q_1622090750.out" -fconcepts -lstdc++fs -std=c++17 -pthread -I/home/qladee/.area51/lab51cc/header/ -include/home/qladee/.area51/lab51cc/header/heads-up/deb-dos.hh

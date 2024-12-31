@@ -1,0 +1,17 @@
+
+
+//cout << "Press Enter to Continue";
+//cin.ignore();
+
+//or, better:
+
+//#include <limits>
+//cout << "Press Enter to Continue";
+//cin.ignore(std::numeric_limits<streamsize>::max(),'\n');
+
+//old-version
+
+// note("Press " + mark("ENTER", "blue") + " to CONTINUE..");
+// cin.get();
+// if (arg1) cin.get();
+

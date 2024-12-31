@@ -1,0 +1,17 @@
+#!/bin/bash
+if [[ ! "$1" ]]
+then
+	echo "[FAILED] invalid number of arg(s) supplied."
+	echo "[pattern] subv <https://github.com/<USER>/<REPO>/tree/master/<DIR>"
+else
+	# elicits the directory.
+	svn checkout `echo $1 | awk '{gsub(/tree\/master/,"trunk")}1'` 2>/dev/null
+	# unless <subv> not installed:
+	if [ "$?" -eq 127 ]; then
+		sudo apt-get install software-properties-common -y
+		sudo apt-get update
+		sudo apt-get install -y subversion 1>/dev/null
+		# now try again:
+		svn checkout `echo $1 | awk '{gsub(/tree\/master/,"trunk")}1'` 2>/dev/null
+	fi
+fi

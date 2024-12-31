@@ -1,0 +1,101 @@
+#! /bin/bash
+
+# The MIT License (MIT)
+# Copyright (c) 2024 Emeer Adhamian (github.com/kode-trek)
+# https://raw.githubusercontent.com/kode-trek/lab51/main/LICENSE
+
+RED='\033[1;35m'
+GREEN='\033[1;36m'
+BLUE='\033[1;34m'
+YELLOW='\033[1;33m'
+NC='\033[0m' #No-Color
+
+printf "${GREEN}-- LAB51CC --${NC}""\n"
+printf "[LABoratory area-51 CC] is a framework for C/C++ development.""\n"
+
+ping -c 2 github.com 1>/dev/null 2>/dev/null
+e=$?
+if [[ $e != 0 ]]
+then
+ printf "${YELLOW}[WARNING]${NC} internet connection not found.""\n"
+ read -p "CONTINUE? (Y/N): " confirm && [[ $confirm == [yY] ]] || exit 1
+fi
+
+if [[ "$1" == "--roll-back" ]]
+then
+ trap "exit" INT
+
+ sudo apt-get remove build-essential -y
+ sudo apt-get remove mingw-w64 -y
+ sudo apt-get remove wine -y
+ sudo apt-get remove git -y
+
+ sudo apt-get install -f -y
+ sudo apt-get update -y
+
+ sudo rm /usr/bin/lab51cc
+ rm -rf ~/.area51/lab51cc/
+
+ read -n1 -r -p "press ANY-KEY to EXIT..." key
+ echo
+ exit
+fi
+
+flg=0
+if [[ -e /usr/bin/lab51cc ]]
+then
+ printf "${BLUE}[OUT]${NC} /usr/bin/lab51cc""\n"
+ flg=1
+fi
+if [[ -e /usr/lib/lab51cc ]]
+then
+ printf "${BLUE}[OUT]${NC} /usr/lib/lab51cc""\n"
+ flg=1
+fi
+if [[ -e ~/.area51/lab51cc ]]
+then
+ printf "${BLUE}[OUT]${NC} ~/.area51/lab51cc""\n"
+ flg=1
+fi
+if [[ $flg == 1 ]]
+then
+ printf "${YELLOW}[WARNING]${NC} file(s) found."
+ read -p " RE-INSTALL? (Y/N): " confirm && [[ $confirm == [yY] ]] || exit 1
+fi
+
+trap "exit" INT
+
+sudo apt update --fix-missing
+sudo apt-get install software-properties-common -y
+sudo apt-get install build-essential -y
+sudo apt-get install mingw-w64 -y
+sudo apt-get install wine -y
+sudo apt-get install git -y
+sudo apt update --fix-missing -y
+
+if [[ -e ~/.area51/ ]]
+then
+ echo "[NOTE] file(s) found."
+ echo "[] ~/.area51/"
+fi
+
+mkdir ~/.area51/ 2>/dev/null
+rm -rf ~/.area51/lab51cc
+mkdir ~/.area51/lab51cc
+cp -rf heads-up ~/.area51/lab51cc/
+
+home=~
+
+g++ main.cc -o lab51cc \
+-lstdc++fs -std=c++2a -I"~/.area51/lab51cc/" \
+-include"$home/.area51/lab51cc/heads-up/deb-dos.hh"
+
+sudo mv lab51cc /usr/bin/
+e=$?
+if [[ $e == 0 ]]
+then
+ printf "${GREEN}DONE.${NC}""\n"
+fi
+
+printf "${BLUE}[OK]${NC} successfully installed.""\n"
+read -n1 -r -p "press ANY-KEY to EXIT..." key
