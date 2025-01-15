@@ -1,0 +1,20 @@
+
+
+int main() {
+    string filename = "example.txt"; 
+    char buffer[4];
+    if (file.read(buffer, 4)) {
+        if (buffer[0] == 'M' && buffer[1] == 'Z') {
+            cout << "File type is: EXE" << endl;
+        } else if (buffer[0] == 0x7f && buffer[1] == 'E' && buffer[2] == 'L' && buffer[3] == 'F') {
+            cout << "File type is: ELF" << endl;
+        } else if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff) {
+            cout << "File type is: JPG" << endl;
+        } else {
+            cout << "Unknown file type." << endl;
+        }
+    }
+    file.close();
+    return 0;
+}
+

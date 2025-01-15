@@ -1,0 +1,25 @@
+#! /bin/bash
+
+sudo apt update --fix-missing
+sudo apt-get install software-properties-common -y
+sudo apt-get install build-essential -y
+sudo apt update --fix-missing
+
+sudo cp lab51cc /usr/bin/
+sudo chmod 755 /usr/bin/lab51cc
+
+mkdir ~/.area51/
+mkdir ~/.area51/lab51cc/
+mkdir ~/.area51/lab51cc/heads-up
+cp a/* ~/.area51/lab51cc/heads-up
+chmod 664 ~/.area51/lab51cc/heads-up/*
+
+sudo mkdir /usr/lib/lab51cc/
+sudo cp a/* /usr/lib/lab51cc/
+sudo chmod 664 /usr/lib/lab51cc/*
+
+printf "\nINSTALLED FILE(S):\n\n"
+echo "/usr/bin/lab51cc"
+echo "~/.area51/lab51cc/heads-up/"
+printf "/usr/lib/lab51cc/""\n\n"
+read -n1 -r -p "press ANY-KEY to EXIT..." key

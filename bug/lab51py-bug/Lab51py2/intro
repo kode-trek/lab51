@@ -1,0 +1,43 @@
+Lab51Py3 -- Inline shell for Python 3 developers.
+ -provides IPython shell.
+ -retrieves and installs <PyPI.org> packages.
+ -builds EXEcutable (binary) applet.
+ -establishes extension (.so) and source-code (.c) for making modules.
+ -provides <sample.pyx> which might become handy with vectorization concept.
+ 
+ Description: Lab51Py2 -- An inline shell for Python 2 developers.
+ Lab51Py2 is an inline shell for productive development in Python 2:
+ -provides an interactive IPython shell.
+ -downloads and installs a package from the PyPI.org repo.
+ -builds an EXEcutable (binary) file.
+ -makes an extension (.so) and its source-code in (.c).
+ -provides a <sample.pyx> that helps with vectorization concept.
+ 
+ 	echo 'pattern: lab51py2 [OPTION]... [FILE]...'
+	echo ' '
+	echo '--------------------------------------------------------'
+	echo 'The Lab51Py2 is an inline shell for Python 2 developers.'
+	echo 'contact: https://github.com/vspades'
+	echo '--------------------------------------------------------'
+	echo ' '
+	echo -e '--help\t\t\t\tdisplays this help.'
+	echo ' '
+	echo -e '--ipython\t\t\tprovides an interactive IPython shell.'
+	echo ' '
+	echo -e '--pkg <PyPI-package>\t\tdownloads and installs a package from the'
+	echo -e '\t\t\t\tPyPI.org repo.'
+	echo ' '
+	echo -e '--build <python-script(.py)>\tbuilds an EXEcutable (binary) file.'
+	echo ' '
+	echo -e '--mod <cython-script(.pyx)>\tmakes an extension (.so).'
+	echo -e '\t\t\t\t/home/'$USER'/.area51py2/lib/sample.pyx'
+
+Description: Py2Lab51 -- An inline shell for Python 2 developers.
+ Py2Lab51 is an inline IDE for productive development in Python 2:
+ -provides an interactive IPython shell.
+ -downloads and installs a package from the PyPI.org repo.
+ -builds an EXEcutable (binary) file.
+ -makes a (.C) and a (.SO) extension, also builds an EXEcutable (binary) file.
+ -provides a <sample.pyx> that helps with vectorization.
+ 
+ 

@@ -1,0 +1,15 @@
+Package: lab51py2
+Version: 1.0-1
+Section: base
+Priority: optional
+Architecture: amd64
+Depends: software-properties-common, libc6-dev, python-dev, build-essential,
+ python-pip, python-setuptools, virtualenv
+Maintainer: https://github.com/ID
+Description: Lab51Py2 -- An inline shell for Python 2 developers.
+ Lab51Py2 is an inline shell for productive development in Python 2:
+ -provides an interactive IPython shell.
+ -downloads and installs a package from the PyPI.org repo.
+ -builds an EXEcutable (binary) file.
+ -makes an extension (.so) and its source-code in (.c).
+ -provides a <sample.pyx> that helps with vectorization concept.

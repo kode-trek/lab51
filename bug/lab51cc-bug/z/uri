@@ -1,0 +1,55 @@
+//uniform-resource-identifier [path]
+void fslash(string& arg1) {
+	if (arg1 != "") {
+		unsigned short int idx = strlen(arg1.c_str()) - 1;
+		if (arg1[idx] == '/') arg1 = arg1.substr(0, idx);
+	}
+}
+vector<string> uri(string arg1, ...) {
+	#ifdef __linux__
+	abbr(arg1);
+	fslash(arg1);
+	string parent = fs::path(arg1).remove_filename();
+	if (parent == "") parent = pwd();
+	string full_name = fs::path(arg1).filename();
+	string file_name = fs::path(arg1).stem();
+	string extension = fs::path(arg1).extension();
+	return {parent, full_name, file_name, extension};
+	#endif
+	#ifdef _WIN32
+	string parent = str(fs::path(arg1).remove_filename());
+	if (parent == "") parent = pwd();
+	string full_name = str(fs::path(arg1).filename());
+	string file_name = str(fs::path(arg1).stem());
+	string extension = str(fs::path(arg1).extension());
+	return {parent, full_name, file_name, extension};
+	#endif
+}
+
+vector<string> uri(string arg="") {
+	string full_name = (fs::path(arg).filename()).string();
+	string file_name = (fs::path(arg).stem()).string();
+	string extension = (fs::path(arg).extension()).string();
+	return {full_name, file_name, extension};
+}
+
+vector<string> uri(string arg1, ...) {
+ /*  variable(s)
+ [v1] path
+ [v2] parent
+ [v3] full-name = file-name + extension
+ [v4] file-name (without-extension)
+ [v5] extension
+ */
+ string v1 = can(arg1);
+ string v2, v3, v4, v5 = "";
+ v2 = fs::path(u8(v1)).remove_filename().string();
+ v3 = fs::path(u8(v1)).filename().string();
+ v4 = fs::path(u8(v1)).stem().string();
+ v5 = fs::path(u8(v1)).extension().string();
+ // op(s)
+ return {v2, v3, v4, v5};
+}
+
+vector<string> uri(...) {return {""};}
+
