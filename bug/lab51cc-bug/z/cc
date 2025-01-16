@@ -1,0 +1,38 @@
+if [[ "$1" == "3" ]]
+then
+	i686-w64-mingw32-g++ "$2" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -includeh.hh
+	exit
+fi
+if [[ "$1" == "6" ]]
+then
+	x86_64-w64-mingw32-g++ "$2" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -includeh.hh
+	exit
+fi
+g++ "$1" -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++17 -pthread -includeh.hh
+
+#g++ main.cc -o lab51cc \
+#-fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++2a -pthread \
+#-I"~/.area51/lab51cc/" \
+#-include"$home/.area51/lab51cc/heads-up/deb-dos.hh"
+
+// string cmd1 = "i686-w64-mingw32-g++ " + quote(v2) + " -o " + quote(v3) +
+// " -fconcepts -static-libgcc -static-libstdc++ -lstdc++fs -std=c++2a -pthread"
+// " -I" + v4 + "/.area51/lab51cc/"
+// " -include" + v4 + "/.area51/lab51cc/heads-up/deb-dos.hh";
+
+#echo -n "[] compiling and building <lab51cc>..."
+#if [[ "$USER" == "root" ]]
+#then
+# g++ main.cc -o lab51cc \
+# -lstdc++fs -std=c++17 -pthread -fconcepts \
+# -I/$USER/.area51/lab51cc/header/ \
+# -include/$USER/.area51/lab51cc/header/heads-up/deb-dos.hh
+#else
+# g++ main.cc -o lab51cc \
+# -lstdc++fs -std=c++17 -pthread -fconcepts \
+# -I/home/$USER/.area51/lab51cc/header/ \
+# -include/home/$USER/.area51/lab51cc/header/heads-up/deb-dos.hh
+#fi
+
+#sudo apt-get install gcc-12-locales -y
+

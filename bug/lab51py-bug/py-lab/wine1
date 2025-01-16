@@ -1,0 +1,18 @@
+https://www.andreafortuna.org/2017/12/27/how-to-cross-compile-a-python-script-into-a-windows-executable-on-linux/
+
+
+    1* 
+    2  wine ~/.wine/drive_c/Python27/Scripts/pyinstaller.exe --onefile src.py
+    3  cp dist/src.exe Public/
+    4  wine uninstaller
+    5  rm -rf ./.wine/drive_c/Python27/
+    6  ls
+    7  cp Public/python-2.7.17.msi .
+    8  wine msiexec /i python-2.7.17.msi /qb
+    9  cd .wine/drive_c/Python27/
+   10  ls
+   11  wine python.exe Scripts/pip.exe install -Iv pyinstaller==3.1
+   12  cd ~
+   13  wine --version
+   14  history 
+   15  history > tmp1

@@ -1,0 +1,15 @@
+Package: py2lab51
+Version: 1.0-1
+Section: base
+Priority: optional
+Architecture: amd64
+Depends: software-properties-common, libc6-dev, python-dev, build-essential,
+ python-pip, python-setuptools, virtualenv
+Maintainer: ID -- ID@gmail.com
+Description: Py2Lab51 -- An inline shell for Python 2 developers.
+ Py2Lab51 is an inline IDE for productive development in Python 2:
+ -provides an interactive IPython shell.
+ -downloads and installs a package from the PyPI.org repo.
+ -builds an EXEcutable (binary) file.
+ -makes a (.C) and a (.SO) extension, also builds an EXEcutable (binary) file.
+ -provides a <sample.pyx> that helps with vectorization.

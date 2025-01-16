@@ -1,0 +1,14 @@
+Package: lab51py3
+Version: 1.0-1
+Section: base
+Priority: optional
+Architecture: amd64
+Depends: software-properties-common, libc6-dev, python3-dev, build-essential,
+ python3-pip, python3-setuptools
+Maintainer: github.com/ID
+Description: Lab51Py3 -- Inline shell for Python 3 developers.
+ -provides IPython shell.
+ -retrieves and installs <PyPI.org> packages.
+ -builds EXEcutable (binary) applet.
+ -establishes extension (.so) and source-code (.c) for making modules.
+ -provides <sample.pyx> which might become handy with vectorization concept.

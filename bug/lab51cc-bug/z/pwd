@@ -1,0 +1,11 @@
+int main() {
+ cd("Music");
+ cd("گویش پارسی");
+ cout << pwd() << endl;
+ cout << fs::current_path() << endl;
+}
+
+Z:\home\kode-trek\Public\Ú¯ÙÛØ´ Ù¾Ø§Ø±Ø³Û
+"Z:\\home\\kode-trek\\Public\\Ú¯ÙÛØ´ Ù¾Ø§Ø±Ø³Û"
+/home/kode-trek/Music
+"/home/kode-trek/Music"

@@ -1,0 +1,81 @@
+    1  nano q.sh
+    2  bash q.sh 
+    3  sudo dpkg --add-architecture i386
+    4  winecfg 
+    5  rm -rf /home/ID/.wine
+    6  winecfg 
+    7  ls -rf /home/ID/.wine
+    8  ls /home/ID/.wine
+    9  ls /home/ID/.wine/user.reg 
+   10  cat /home/ID/.wine/user.reg 
+   11  cat /home/ID/.wine/userdef.reg 
+   12  cat /home/ID/.wine/system.reg 
+   13  cat /home/ID/.wine/.update-timestamp 
+   14  cat /home/ID/.wine/dosdevices/
+   15  cat /home/ID/.wine/dosdevices/com1
+   16  ls /usr/share/wine/gecko
+   17  ls /usr/share/wine/
+   18  ~/.cache/wine
+   19  ls ~/.cache/wine
+   20  sudo apt-get install mono-complete
+   21  sudo apt-get install mono-complete 
+   22  sudo apt-get install wine32
+   23  sudo apt-get install winehq-stable 4.0.3~xenial
+   24  https://www.python.org/ftp/python/2.7.9/python-2.7.9.amd64.msi
+   25  wget https://www.python.org/ftp/python/2.7.9/python-2.7.9.amd64.msi
+   26  wine msiexec /i python-2.7.9.amd64.msi /qb
+   27  cd ~/.wine/drive_c/Python27
+   28  wine python.exe Scripts/pip.exe install pyinstaller
+   29  cd ~
+   30  ls
+   31  nano src.py
+   32  wine ~/.wine/drive_c/Python27/Scripts/pyinstaller.exe --onefile src.py 
+   33  ls
+   34  mv dist/src.exe Public/
+   35  wine msiexec /i python-2.7.9.msi /qb
+   36  ls ~/.wine/drive_c/Python27/
+   37  wine ~/.wine/drive_c/Python27/python.exe 
+   38  winecfg 
+   39  wine64
+   40  winebuild 
+   41  winefile 
+   42  wine-preloader 
+   43  winecfg 
+   44  wine uninstaller
+   45  rm -rf ~/.wine/drive_c/Python27/ 
+   46  ls
+   47  ls -lh
+   48  sudo chmod 664 python-2.7.15.msi 
+   49  wine msiexec /i python-2.7.15.msi /qb
+   50  wine ~/.wine/drive_c/Python27/python.exe 
+   51  ls
+   52  wine ~/.wine/drive_c/Python27/Scripts/pyinstaller.exe --onefile src.py
+   53  cd ~/.wine/drive_c/Python27
+   54  wine python.exe Scripts/pip.exe install pyinstaller
+   55  wine ~/.wine/drive_c/Python27/Scripts/pyinstaller.exe --onefile src.py
+   56  cd ~
+   57  wine ~/.wine/drive_c/Python27/Scripts/pyinstaller.exe --onefile src.py
+   58  mv dist/src.exe Public/
+   59  wine uninstaller
+   60  ls
+   61* cp Public/python-2.7.17.amd64.msi 
+   62  wine msiexec /i python-2.7.17.amd64.msi /qb
+   63  wine ~/.wine/drive_c/Python27/Scripts/pyinstaller.exe --onefile src.py
+   64  wine dist/src.exe 
+   65  cp dist/src.exe Public/
+   66  wine .wine/drive_c/Python27/python.exe Scripts/pip.exe install pyinstaller
+   67* 
+   68  cd ~
+   69  wine ~/.wine/drive_c/Python27/Scripts/pyinstaller.exe --onefile src.py
+   70  cp dist/src.exe Public/
+   71  cd ~/.wine/drive_c/Python27
+   72  ls
+   73  wine python.exe 
+   74* 
+   75  wine ~/.wine/drive_c/Python27/Scripts/pyinstaller.exe --onefile src.py
+   76  cd ~
+   77  wine ~/.wine/drive_c/Python27/Scripts/pyinstaller.exe --onefile src.py
+   78  wine dist/src.exe 
+   79  cp dist/src.exe Public/
+   80  history 
+   81  history > tmp2

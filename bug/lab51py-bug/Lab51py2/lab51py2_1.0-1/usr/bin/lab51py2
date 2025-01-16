@@ -1,0 +1,109 @@
+#!/bin/bash
+# checks for .area51
+DIR="/home/$USER/.area51py2"
+# if NOT EXISTS; sets up environment and installs required packages.
+if [ ! -d "$DIR" ]
+then
+	loc=`pwd`
+	cd ~
+	virtualenv .area51py2
+	source .area51py2/bin/activate
+	pip install --upgrade 'setuptools<45.0.0'
+	pip install IPython
+	pip install pyinstaller
+	pip install Cython
+	#pip install --user virtualenv
+	cp /usr/lib/lab51py2/setup.py /home/$USER/.area51py2/lib 2>/dev/null
+	if [[ "$?" -ne 0 ]]
+	then
+		echo "[FAILED] access denied: /home/$USER/"
+	fi
+	cp /usr/lib/lab51py2/cTurbo /home/$USER/.area51py2/lib 2>/dev/null
+	if [[ "$?" -ne 0 ]]
+	then
+		echo "[FAILED] access denied: /home/$USER/"
+	fi
+	cp /usr/lib/lab51py2/cTurbo.py /home/$USER/.area51py2/lib 2>/dev/null
+	if [[ "$?" -ne 0 ]]
+	then
+		echo "[FAILED] access denied: /home/$USER/"
+	fi
+	cp /usr/lib/lab51py2/sample.pyx /home/$USER/.area51py2/lib 2>/dev/null
+	if [[ "$?" -ne 0 ]]
+	then
+		echo "[FAILED] access denied: /home/$USER/"
+	fi
+	deactivate
+	cd "$loc"
+fi
+# checks for argument(s) supplied.
+if [[ "$1" == '--ipython' ]]
+then
+	source ~/.area51py2/bin/activate
+	python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'
+	deactivate
+elif [[ "$1" == '--pkg' ]]
+then
+	source ~/.area51py2/bin/activate
+	pip install "$2" 2>/dev/null
+	if [[ "$?" -ne 0 ]]
+	then
+		echo "[FAILED] to install package: <$2>"
+		echo "[FAILED] pip install $2"
+	fi
+	deactivate
+elif [[ "$1" == '--build' ]]
+then
+	source ~/.area51py2/bin/activate
+	pyinstaller --onefile "$2" 2>/dev/null
+	if [[ "$?" -ne 0 ]]
+	then
+		echo "[FAILED] to build the EXEcutable file."
+		echo "[FAILED] pyinstaller --onefile $2"
+	fi
+	mv dist/* . 2>/dev/null
+	rm -rf dist build *.spec 2>/dev/null
+	deactivate
+elif [[ "$1" == '--mod' ]]
+then
+	source ~/.area51py2/bin/activate
+	if [ ! -f "cTurbo" ]
+	then
+		cp /home/$USER/.area51py2/lib/cTurbo . 2>/dev/null
+	else
+		echo '[FAILED] <cTurbo> exists.'
+	fi
+	if [ ! -f "setup.py" ]
+	then
+		cp /home/$USER/.area51py2/lib/setup.py . 2>/dev/null
+	else
+		echo '[FAILED] <setup.py> exists.'
+	fi
+	./cTurbo "$2"
+	rm cTurbo setup.py 2>/dev/null
+	deactivate
+elif [[ "$1" == '--help' ]]
+then
+	echo 'pattern: lab51py2 [OPTION]... [FILE]...'
+	echo ' '
+	echo '--------------------------------------------------------'
+	echo 'The Lab51Py2 is an inline shell for Python 2 developers.'
+	echo 'contact: https://github.com/vspades'
+	echo '--------------------------------------------------------'
+	echo ' '
+	echo -e '--help\t\t\t\tdisplays this help.'
+	echo ' '
+	echo -e '--ipython\t\t\tprovides an interactive IPython shell.'
+	echo ' '
+	echo -e '--pkg <PyPI-package>\t\tdownloads and installs a package from the'
+	echo -e '\t\t\t\tPyPI.org repo.'
+	echo ' '
+	echo -e '--build <python-script(.py)>\tbuilds an EXEcutable (binary) file.'
+	echo ' '
+	echo -e '--mod <cython-script(.pyx)>\tmakes an extension (.so).'
+	echo -e '\t\t\t\t/home/'$USER'/.area51py2/lib/sample.pyx'
+else
+	source ~/.area51py2/bin/activate
+	"$@"
+	deactivate
+fi

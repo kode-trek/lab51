@@ -1,0 +1,84 @@
+#! /bin/bash
+
+DIR="/home/$USER/.area51"
+if [ ! -d "$DIR" ]
+then
+	loc=`pwd`
+
+	cd ~
+	virtualenv .area51
+	source .area51/bin/activate
+
+	pip install --upgrade 'setuptools<45.0.0'
+	pip install IPython
+	pip install pyinstaller
+	pip install Cython
+	#pip install --user virtualenv
+
+	cp /usr/lib/py2lab51/setup.py /home/$USER/.area51/lib 2>/dev/null
+	cp /usr/lib/py2lab51/cTurbo /home/$USER/.area51/lib 2>/dev/null
+	cp /usr/lib/py2lab51/cTurbo.py /home/$USER/.area51/lib 2>/dev/null
+	cp /usr/lib/py2lab51/sample.pyx /home/$USER/.area51/lib 2>/dev/null
+
+	deactivate
+
+	cd $loc
+fi
+
+if [[ $1 == '--ipython' ]]
+then
+	source ~/.area51/bin/activate
+	python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'
+	deactivate
+
+elif [[ $1 == '--mod' ]]
+then
+	source ~/.area51/bin/activate
+	pip install $2 2>/dev/null
+	deactivate
+
+elif [[ $1 == '--build' ]]
+then
+	if ls *.spec 1>/dev/null 2>&1
+	then
+		echo "[ NOT SAFE ]: The <*.spec> exists."
+		exit
+	fi
+	if [ -d "build/" ]
+	then
+		echo "[ NOT SAFE ]: The <build/> exists."
+		exit
+	fi
+	if [ -d "dist/" ]
+	then
+		echo "[ NOT SAFE ]: The <dist/> exists."
+		exit
+	fi
+	source ~/.area51/bin/activate
+	pyinstaller --onefile $2 2>/dev/null
+	if [ $? -eq 0 ]
+	then
+		echo "[ OK ]: py2lab51 --build $2"
+	else
+		echo "[ FAILED ]: py2lab51 --build $2"
+	fi
+	mv dist/* . 2>/dev/null
+	rm -rf dist build *.spec 2>/dev/null
+	deactivate
+
+elif [[ $1 == '--help' ]]
+then
+	echo 'Usage: py2lab51 [OPTION]... [FILE]...'
+	echo 'The Py2Lab51 is an inline shell for Python 2 developers.'
+	echo '--------------------------------------------------------'
+	echo ' '
+	echo -e '--help\t\t\t\tdisplays this help.'
+	echo ' '
+	echo -e '--ipython\t\t\tprovides an interactive IPython shell.'
+	echo ' '
+	echo -e '--mod <PyPI-package>\t\tdownloads and installs a package from the'
+	echo -e '\t\t\t\tPyPI.org repo.'
+	echo ' '
+	echo -e '--build <python-script(.py)>\tbuilds an EXEcutable (binary) file.'
+	echo ' '
+	echo -e '--turbo <cython-script(.pyx)

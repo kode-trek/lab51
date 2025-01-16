@@ -1,0 +1,3 @@
+awk 'sub("$", "\r")' main.cc > main_win.cc
+file -b --mime-type q.cc
+sed -i -e 's/\r$//' mede

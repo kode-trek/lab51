@@ -1,0 +1,62 @@
+ cout << space("c:/") << endl;
+ cout << space("") << endl;
+ cout << space() << endl;
+ cout << space(ts()) << endl;
+ cout << space("c:/گویش پارسی") << endl;
+ cout << space("q.cc") << endl;
+ cout << space("f") << endl;
+ cout << space("d") << endl;
+ cout << blank("d") << endl;
+ cout << space("f", "free") << endl;
+ cout << space("d", "free") << endl;
+ cout << space("c:/", "free") << endl;
+
+
+C:\>a.exe
+terminate called after throwing an instance of 'std::filesystem::__cxx11::filesystem_error'
+ what():  filesystem error: cannot increment recursive directory iterator: Invalid argument
+
+This application has requested the Runtime to terminate it in an unusual way.
+Please contact the application's support team for more information.
+
+ cout << space() << endl;
+ printf("%f", space()); cout << endl;
+ printf("%g", space()); cout << endl;
+ printf("%e", space()); cout << endl;
+Each increase in units represents 1,000 of the previous unit. A kilobyte (KB) is 1,000 bytes, and one megabyte (MB) is 1,000 kilobytes. One gigabyte (GB) is equal to 1,000 megabytes, while a terabyte (TB) is 1,000 gigabytes.
+// sprintf("%f", space()); cout << endl;
+// sprintf("%g", space()); cout << endl;
+// sprintf("%e", space()); cout << endl;
+
+
+ifstream::pos_type fsize(string arg1, ...) {
+ // ...
+ if (not exist(arg1)) return 0;
+ // ...
+}
+
+//vector<float> space(string arg1, ...) {
+// /* variable(s)
+// [v1] space-information
+// [v2] float-vector
+// */
+// const fs::space_info v1 = fs::space(arg1);
+// vector<float> v2 = {};
+// v2.push_back(v1.capacity);
+// v2.push_back(v1.free);
+// v2.push_back(v1.available);
+// return v2;
+//}
+
+//vector<float> space(...) {
+// /* variable(s)
+// [v1] space-information
+// [v2] float-vector
+// */
+// const fs::space_info v1 = fs::space(pwd());
+// vector<float> v2 = {};
+// v2.push_back(v1.capacity);
+// v2.push_back(v1.free);
+// v2.push_back(v1.available);
+// return v2;
+//}

@@ -1,0 +1,27 @@
+[THIS] https://github.com/msys2/MSYS2-packages/issues/1937
+
+https://stackoverflow.com/questions/63765505/mingw-bug-stdfilesystemcopy-fails-with-filesystem-error-when-file-exist-e
+
+https://sourceforge.net/p/mingw-w64/bugs/852/
+
+above links discuss that option "overwright" does not working via "mingw".
+
+nonetheless we did a "workaround" till next bug-fix:
+
+  #ifdef _WIN32
+  if (exist(v2) and (not dir(v2))) rm(v2);
+  #endif
+
+the following script also not working in WIN/DOS:
+
+ if (v1 == v2)
+  return true; // <source> and <target> are the same!
+ if (v1 == uri(v2, "parent"))
+  return true; // moving this-very-directory into itslef!
+  
+this example leads to unexplained result when in drive "Z:/" shared-folder
+
+ cout << cp("q.cc", ".") << endl;
+ cout << can(".") << endl;
+
+

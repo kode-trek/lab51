@@ -1,0 +1,90 @@
+string pwd_(...) {
+	#ifdef _WIN32
+	char temp[MAXPATHLEN];
+	return (getcwd(temp, sizeof(temp)) ? string(temp) : string(""));
+	#endif
+	#ifdef __linux__
+	return fs::current_path();
+	#endif
+}
+
+int main() {
+ cd("گویش پارسی");
+ cout << pwd_() << endl;
+ if (uri(pwd_(), "full-name") == "گویش پارسی") cout << "YES" << endl;
+ cout << pwd_() << endl;
+ cout << fs::current_path() << endl;
+ if (uri(fs::current_path(), "full-name") == "گویش پارسی")
+  cout << "YES" << endl;
+ pausee();
+}
+
+
+
+const wchar_t* v1 = L"سلام";
+wcout << v1 << endl;
+
+the above script worked in linux g++ and didnt diplay anything in WINDOWS mingw
+
+const wchar_t* txt = widen(arg2).c_str();
+
+const char8_t* arg1
+wstring arg2 = L""
+
+wstring convert(string& arg1) {
+ wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+ return converter.from_bytes(arg1);
+}
+
+int main() {
+ string v1 = "فارسی";
+ #ifdef _WIN32
+ cout << fs::is_empty(convert(v1)) << endl;
+ #endif
+ #ifdef __linux__
+ cout << fs::is_empty(v1) << endl;
+ #endif
+}
+
+
+#ifdef _WIN32
+wstring widen(const string& arg1) {
+	wostringstream wstm;
+	const ctype<wchar_t>& ctfacet = use_facet<ctype<wchar_t>> (wstm.getloc());
+	for (size_t i = 0; i < arg1.size(); ++i) wstm << ctfacet.widen(arg1[i]);
+	return wstm.str();
+}
+#endif
+
+void mvv(string arg1, string arg2) {
+	#ifdef __WIN32
+	wstring v1 = wstring(arg1.begin(), arg1.end());
+	wstring v2 = wstring(arg2.begin(), arg2.end());
+	_wrename(v1.c_str(), v2.c_str());
+	#endif
+	#ifdef __linux__
+	rename(arg1.c_str(), arg2.c_str());
+	#endif
+}
+
+int main() {
+	mvv("test.txt", "test2.txt");
+}
+
+
+
+#include <iostream>
+#include <windows.h>
+#include <fstream>
+#include <filesystem>
+
+using namespace std;
+
+int main() { // I GUESS THIS IS FOR DROP THEREFORE DOESN'T BELONG HERE
+	ofstream out(std::filesystem::path(u8"فارسی"));
+	out << "پارسی را پاس بداریم";
+	out.close();
+}
+
+// THERE WAS A DISPLAY FORMAT LIKE ???? 
+// A QUESTION_MARK FOR EACH LETTER IN DOS

@@ -1,0 +1,88 @@
+#! /bin/bash
+
+# The MIT License (MIT)
+# Copyright (c) 2025 Emeer Adhamian (github.com/kode-trek)
+# https://raw.githubusercontent.com/kode-trek/lab51/main/LICENSE
+
+echo "[LAB51CC/LABoratory area-51 CC] is a framework for C/C++ development."
+
+WORKSPACE=~/.area51
+
+if [[ "$1" == "--roll-back" ]]
+then
+ trap "exit" INT
+
+ echo "[] package(s) to be REMOVED:"
+ echo "   build-essential"
+ echo "   mingw-w64"
+ echo "   wine"
+ echo "   git"
+ echo "[] file(s) to be REMOVED:"
+ echo "   /usr/bin/lab51cc"
+ echo "   $WORKSPACE/lab51cc/"
+
+ read -p "CONTINUE? (Y/N): " confirm && [[ $confirm == [yY] ]] || exit 1
+
+ sudo apt-get install -f -y
+ sudo apt update
+
+ sudo apt-get remove -y build-essential
+ sudo apt-get remove -y mingw-w64
+ sudo apt-get remove -y wine
+ sudo apt-get remove -y git
+
+ sudo rm /usr/bin/lab51cc
+ rm -rf $WORKSPACE/lab51cc/
+
+ read -n1 -r -p "press ANY-KEY to EXIT..." key
+ exit
+fi
+
+echo "[] package(s) to be INSTALLED (INTERNET connection is required):"
+echo "   build-essential"
+echo "   mingw-w64"
+echo "   wine"
+echo "   git"
+echo "[] file(s) to be INSTALLED:"
+echo "   /usr/bin/lab51cc"
+echo "   $WORKSPACE/lab51cc/"
+read -p "CONTINUE? (Y/N): " confirm && [[ $confirm == [yY] ]] || exit 1
+
+flg=0
+if [[ -e /usr/bin/lab51cc ]]
+then
+ echo "[OUT] /usr/bin/lab51cc"
+ flg=1
+fi
+if [[ -e $WORKSPACE/lab51cc/ ]]
+then
+ echo "[OUT] $WORKSPACE/lab51cc/"
+ flg=1
+fi
+if [[ $flg == 1 ]]
+then
+ echo -n "[WARNING] file(s) found."
+ read -p " RE-INSTALL? (Y/N): " confirm && [[ $confirm == [yY] ]] || exit 1
+fi
+
+trap "exit" INT
+
+sudo apt-get install -f -y
+sudo apt update
+
+sudo apt-get install -y build-essential
+sudo apt-get install -y mingw-w64
+sudo apt-get install -y wine
+sudo apt-get install -y git
+
+mkdir $WORKSPACE
+rm -rf $WORKSPACE/lab51cc/
+mkdir $WORKSPACE/lab51cc/
+cp -rf heads-up $WORKSPACE/lab51cc/
+
+g++ main.cc -o lab51cc -lstdc++fs -fconcepts \
+-I"$WORKSPACE/lab51cc/" -include"$WORKSPACE/lab51cc/heads-up/deb-dos.hh"
+
+sudo mv lab51cc /usr/bin/
+
+read -n1 -r -p "press ANY-KEY to EXIT..." key

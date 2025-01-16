@@ -1,0 +1,10 @@
+DIR="/home/$USER/.area51py3"
+if "arg1" == "--setup"
+    "[] preparing laboratory..."
+    RUN <post-inst.sh>
+if [ ! -d "$DIR" ]
+then
+    echo "laboratory conditions are not controlled."
+    echo "lab51py3 --setup"
+    exit
+fi

@@ -1,0 +1,18 @@
+Lab51Py2W32 is an in-line shell for Python-2 developers.
+contact: <https://github.com/ID>
+
+[PATTERN] lab51py2w32 --help
+displays this help.
+
+[PATTERN] lab51py2w32 --ipython
+provides an interactive IPython shell.
+
+[PATTERN] lab51py2w32 --pkg <PyPI-package>
+retrieves and installs a package from PyPI.org repo.
+
+[PATTERN] lab51py2w32 --build <python-script(.py)>
+builds an EXEcutable (binary) file.
+
+[PATTERN] lab51py2w32 --mod <cython-script(.pyx)>
+makes a (.so) extension.
+provides a <sample.pyx> script.

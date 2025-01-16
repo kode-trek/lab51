@@ -1,0 +1,7 @@
+## License ##
+
+The plugin is available under the <a href="http://opensource.org/licenses/MIT">MIT license</a>.
+
+ls -1 > tmp-1
+git ls-tree main --name-only > tmp-2
+diff tmp-1 tmp-2

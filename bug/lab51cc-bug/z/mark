@@ -1,0 +1,19 @@
+
+//#ifdef _WIN32
+// #include "color.hpp"
+//#endif
+
+// #ifdef _WIN32
+////auto f1(string arg1) {return dye::aqua(arg1);}
+
+// auto v1 = "foo and " + dye::light_aqua("bar");
+// auto v2 = "foo and " + dye::light_purple("bar");
+// auto v3 = "foo and " + dye::light_blue("bar");
+// auto v4 = "foo and " + dye::light_yellow("bar");
+// cout << v1 << endl;
+// cout << v2 << endl;
+// cout << v3 << endl;
+// cout << v4 << endl;
+// #endif
+
+

@@ -1,0 +1,26 @@
+<Options>
+<Option Name="InstallAllUsers" Value="0" />
+<Option Name="TargetDir" Value="C:\Python38" />
+<Option Name="DefaultAllUsersTargetDir" Value="C:\Python38" />
+<Option Name="DefaultJustForMeTargetDir" Value="C:\Python38" />
+<Option Name="DefaultCustomTargetDir" Value="C:\Python38" />
+<Option Name="AssociateFiles" Value="1" />
+<Option Name="CompileAll" Value="1" />
+<Option Name="PrependPath" Value="0" />
+<Option Name="Shortcuts" Value="0" />
+<Option Name="Include_doc" Value="1" />
+<Option Name="Include_debug" Value="1" />
+<Option Name="Include_dev" Value="1" />
+<Option Name="Include_exe" Value="1" />
+<Option Name="Include_launcher" Value="1" />
+<Option Name="InstallLauncherAllUsers" Value="0" />
+<Option Name="Include_lib" Value="1" />
+<Option Name="Include_pip" Value="1" />
+<Option Name="Include_symbols" Value="1" />
+<Option Name="Include_tcltk" Value="1" />
+<Option Name="Include_test" Value="1" />
+<Option Name="Include_tools" Value="1" />
+<Option Name="LauncherOnly" Value="0" />
+<Option Name="SimpleInstall" Value="1" />
+<Option Name="SimpleInstallDescription"></Option>
+</Options>
